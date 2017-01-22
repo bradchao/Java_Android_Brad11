@@ -36,14 +36,19 @@ public class MyService extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        boolean isPause = intent.getBooleanExtra("isPause", false);
-        if (isPause){
-            if (mediaPlayer.isPlaying()) {
-                mediaPlayer.pause();
-            }
-        }else{
-            if (!mediaPlayer.isPlaying()) {
-                mediaPlayer.start();
+        int newpos = intent.getIntExtra("newpos", -1);
+        if (newpos>=0){
+            mediaPlayer.seekTo(newpos);
+        }else {
+            boolean isPause = intent.getBooleanExtra("isPause", false);
+            if (isPause) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause();
+                }
+            } else {
+                if (!mediaPlayer.isPlaying()) {
+                    mediaPlayer.start();
+                }
             }
         }
 
