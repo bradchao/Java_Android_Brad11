@@ -26,7 +26,10 @@ public class MyService extends Service {
         timer = new Timer();
         mediaPlayer = MediaPlayer.create(this,R.raw.try_everything);
 
-        mediaPlayer.getDuration();
+        int len = mediaPlayer.getDuration();
+        Intent it = new Intent("brad");
+        it.putExtra("len", len);
+        sendBroadcast(it);
 
         timer.schedule(new MyTask(), 0, 200);
 
@@ -51,7 +54,11 @@ public class MyService extends Service {
         @Override
         public void run() {
             if (mediaPlayer != null && mediaPlayer.isPlaying()){
-                mediaPlayer.getCurrentPosition();
+                int now = mediaPlayer.getCurrentPosition();
+                Intent it = new Intent("brad");
+                it.putExtra("now", now);
+                sendBroadcast(it);
+
             }
         }
     }
