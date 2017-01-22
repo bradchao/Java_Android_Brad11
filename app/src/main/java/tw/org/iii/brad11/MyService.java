@@ -31,7 +31,7 @@ public class MyService extends Service {
         it.putExtra("len", len);
         sendBroadcast(it);
 
-        timer.schedule(new MyTask(), 0, 200);
+        timer.schedule(new MyTask(), 0, 1000);
 
     }
     @Override
