@@ -20,10 +20,21 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         mediaPlayer = MediaPlayer.create(this,R.raw.try_everything);
-        mediaPlayer.start();
+
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        boolean isPause = intent.getBooleanExtra("isPause", false);
+        if (isPause){
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.pause();
+            }
+        }else{
+            if (!mediaPlayer.isPlaying()) {
+                mediaPlayer.start();
+            }
+        }
+
         return super.onStartCommand(intent, flags, startId);
     }
     @Override

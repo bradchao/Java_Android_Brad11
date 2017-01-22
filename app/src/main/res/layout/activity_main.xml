@@ -14,12 +14,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="test1"
-        android:text="test1"
+        android:text="start"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="test2"
-        android:text="test2"
+        android:text="stop"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="test3"
+        android:text="pause"
+        />
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         />
 </LinearLayout>
