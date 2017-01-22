@@ -53,7 +53,12 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             int len = intent.getIntExtra("len",-1);
             int now = intent.getIntExtra("now", -1);
-            Log.v("brad", "len = " + len + "; now = " + now);
+            if (len>0){
+                seekBar.setMax(len);
+            }
+            if (now>0){
+                seekBar.setProgress(now);
+            }
         }
     }
 
